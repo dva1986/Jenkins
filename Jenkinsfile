@@ -19,6 +19,7 @@ pipeline {
     }
     stage('Run') {
      steps {
+      sh 'docker ps'
       sh './scripts/build.sh'
       sh 'pwd'
       sh 'ls -la'
