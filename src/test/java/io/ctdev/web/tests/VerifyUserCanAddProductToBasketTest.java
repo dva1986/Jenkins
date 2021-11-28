@@ -34,6 +34,8 @@ public class VerifyUserCanAddProductToBasketTest {
     public void verifyLogIn() {
         loginPage.logInAsCustomer(customer);
 
+        Thread.sleep(60000);
+
         Assert.assertTrue(loginPage.isAccountIconPresent(),
                 "Customer Icon should be present");
     }
