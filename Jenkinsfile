@@ -14,7 +14,7 @@ pipeline {
     }
     stage('Clone') {
      steps {
-       git([url: 'https://github.com/mariiavynnyk/HomeProject.git', branch: 'main'])
+       git([url: 'https://github.com/dva1986/Jenkins.git', branch: 'main'])
      }
     }
     stage('Run') {
