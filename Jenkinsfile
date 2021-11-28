@@ -26,7 +26,7 @@ pipeline {
       sh 'cat $(pwd)/browsers.json'
       sh 'cat $PWD/browsers.json'
 //       sh 'docker run -d --net selenoid --name selenoid -p 4445:4444 -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/etc/selenoid -v $(pwd)/browsers.json:/etc/selenoid/browsers.json aerokube/selenoid:latest-release -conf /etc/selenoid/browsers.json -video-output-dir /opt/selenoid/video/ -timeout 3m0s -container-network selenoid'
-      sh 'docker run -d --net selenoid --name selenoid -p 4445:4444 --mount type=bind,source=$(pwd)/browsers.json,target=/etc/selenoid/browsers.json -v /var/run/docker.sock:/var/run/docker.sock aerokube/selenoid:latest-release -conf /etc/selenoid/browsers.json -video-output-dir /opt/selenoid/video/ -timeout 3m0s -container-network selenoid'
+      sh 'docker run -d --net selenoid --name selenoid -p 4445:4444 --mount type=bind,source=$(pwd),target=/etc/selenoid -v /var/run/docker.sock:/var/run/docker.sock aerokube/selenoid:latest-release -conf /etc/selenoid/browsers.json -video-output-dir /opt/selenoid/video/ -timeout 3m0s -container-network selenoid'
       sh 'docker logs selenoid'
       sh 'docker run -d --net selenoid --name selenoid-ui -p 8081:8080 aerokube/selenoid-ui:latest-release --selenoid-uri http://selenoid:4444'
       sh 'docker logs selenoid-ui'
