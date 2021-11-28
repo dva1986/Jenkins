@@ -9,7 +9,7 @@ pipeline {
          def dockerHome = tool 'myDocker'
          env.PATH = "${dockerHome}/bin:${env.PATH}"
         }
-        sh './scripts/clear.sh'
+        sh 'sh scripts/clear.sh'
       }
     }
     stage('Clone') {
@@ -21,14 +21,14 @@ pipeline {
      steps {
       sh 'hostname -i'
       sh 'docker ps'
-      sh './scripts/build.sh'
+      sh 'sh scripts/build.sh'
 //       sh 'pwd'
 //       sh 'ls -la'
-      sh './scripts/run.sh'
+      sh 'sh scripts/run.sh'
       sh 'echo "http://127.0.0.1:8081"'
-      sh './scripts/run-tests.sh'
+      sh 'sh scripts/run-tests.sh'
 //       sh 'du target'
-      sh './scripts/generate-report.sh'
+      sh 'sh scripts/generate-report.sh'
 //       sh 'du target'
 //       sh 'du allure-report'
       sh 'ls -la'
@@ -37,7 +37,7 @@ pipeline {
     }
 //     stage('Clean up') {
 //       steps {
-//         sh './scripts/clear.sh'
+//         sh 'sh scripts/clear.sh'
 //       }
 //     }
   }
