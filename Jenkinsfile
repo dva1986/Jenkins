@@ -22,7 +22,6 @@ pipeline {
       sh 'hostname -i'
       sh 'docker ps'
       sh 'sh scripts/build.sh'
-      sh 'ls -la'
       sh 'cat $(pwd)/browsers.json'
       sh 'cat $PWD/browsers.json'
 //       sh 'docker run -d --net selenoid --name selenoid -p 4445:4444 -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/etc/selenoid aerokube/selenoid:latest-release -conf /etc/selenoid/browsers.json -video-output-dir /opt/selenoid/video/ -timeout 3m0s -container-network selenoid'
@@ -36,6 +35,7 @@ pipeline {
       sh 'sh scripts/generate-report.sh'
 //       sh 'du target'
 //       sh 'du allure-report'
+      sh 'ls -la'
      }
     }
 //     stage('Clean up') {
