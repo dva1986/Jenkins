@@ -35,10 +35,10 @@ pipeline {
       sh 'pwd'
      }
     }
-    stage('Clean up') {
-      steps {
+//     stage('Clean up') {
+//       steps {
 //         sh './scripts/clear.sh'
-      }
-    }
+//       }
+//     }
   }
 }
