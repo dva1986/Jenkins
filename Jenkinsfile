@@ -19,6 +19,7 @@ pipeline {
     }
     stage('Run') {
      steps {
+      sh 'hostname -i'
       sh 'docker ps'
       sh './scripts/build.sh'
       sh 'pwd'
