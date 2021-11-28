@@ -19,23 +19,12 @@ pipeline {
     }
     stage('Run') {
      steps {
-      sh 'hostname -i'
-      sh 'docker ps'
-      sh 'sh scripts/build.sh'
-      sh 'cat $(pwd)/browsers.json'
-      sh 'cat $PWD/browsers.json'
-//       sh 'docker run -d --net selenoid --name selenoid -p 4445:4444 -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/etc/selenoid aerokube/selenoid:latest-release -conf /etc/selenoid/browsers.json -video-output-dir /opt/selenoid/video/ -timeout 3m0s -container-network selenoid'
+      sh 'docker network create selenoid --subnet 172.37.40.0/24'
       sh 'docker run -d --net selenoid --name selenoid -p 4445:4444 -v /var/run/docker.sock:/var/run/docker.sock dva1986/selenoid -conf /etc/selenoid/browsers.json -video-output-dir /opt/selenoid/video/ -timeout 3m0s -container-network selenoid'
-      sh 'docker logs selenoid'
       sh 'docker run -d --net selenoid --name selenoid-ui -p 8081:8080 aerokube/selenoid-ui:latest-release --selenoid-uri http://selenoid:4444'
-      sh 'docker logs selenoid-ui'
       sh 'echo "http://127.0.0.1:8081"'
       sh 'sh scripts/run-tests.sh'
-//       sh 'du target'
-      sh 'sh scripts/generate-report.sh'
-//       sh 'du target'
-//       sh 'du allure-report'
-      sh 'ls -la'
+      sh 'docker run --rm --name maven -v $PWD/target:/app/target/ -v $PWD/allure-report:/app/allure-report/ dva1986/maven-tests site'
      }
     }
 //     stage('Clean up') {
