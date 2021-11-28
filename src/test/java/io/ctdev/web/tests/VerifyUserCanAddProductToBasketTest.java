@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import java.lang.*;
 
 import static io.ctdev.framework.driver.WebDriverSingleton.getDriver;
 import static java.lang.String.format;
@@ -33,7 +34,7 @@ public class VerifyUserCanAddProductToBasketTest {
     @Description("Verify user can login")
     public void verifyLogIn() {
         loginPage.logInAsCustomer(customer);
-
+        Thread.sleep(60000);
         loginPage.waitForSomething(120);
 
         Assert.assertTrue(loginPage.isAccountIconPresent(),
