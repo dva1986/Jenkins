@@ -21,6 +21,7 @@ pipeline {
      steps {
       sh './scripts/build.sh'
       sh 'pwd'
+      sh 'ls -la'
 //       sh './scripts/run.sh'
 //       sh 'echo "http://127.0.0.1:8081"'
 //       sh './scripts/run-tests.sh'
