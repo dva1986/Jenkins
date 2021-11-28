@@ -8,4 +8,7 @@ COPY . /app
 
 WORKDIR app
 
+RUN mkdir target
+RUN chmod 777 -R target/
+
 ENTRYPOINT ["mvn"]
