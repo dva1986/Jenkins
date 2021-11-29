@@ -33,6 +33,14 @@ pipeline {
       sh 'sh scripts/run-tests.sh'
      }
     }
+
+    stage('Debug') {
+     steps {
+      sh 'ls -la'
+      sh 'java -version'
+     }
+    }
+
 //     stage('Generate Report') {
 //      steps {
 //       sh 'sh scripts/report.sh'
