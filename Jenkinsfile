@@ -38,6 +38,8 @@ pipeline {
      steps {
       sh 'ls -la'
       sh 'java -version'
+      sh 'ls -a ${WORKSPACE}'
+
      }
     }
 
@@ -50,9 +52,9 @@ pipeline {
   post {
       always {
         allure([
-            includeProperties: false,
-            jdk: '',
-            properties: [],
+//             includeProperties: false,
+//             jdk: '',
+//             properties: [],
             reportBuildPolicy: 'ALWAYS',
             results: [[path: 'target/allure-results']]
         ])
