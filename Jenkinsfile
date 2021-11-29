@@ -49,15 +49,15 @@ pipeline {
 //      }
 //     }
   }
-  post {
-      always {
-        allure([
-            includeProperties: false,
-            jdk: '',
-            properties: [],
-            reportBuildPolicy: 'ALWAYS',
-            results: [[path: '${WORKSPACE}/target/allure-results']]
-        ])
-      }
-    }
+//   post {
+//       always {
+//         allure([
+//             includeProperties: false,
+//             jdk: '',
+//             properties: [],
+//             reportBuildPolicy: 'ALWAYS',
+//             results: [[path: '${WORKSPACE}/target/allure-results']]
+//         ])
+//       }
+//     }
 }
