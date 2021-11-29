@@ -34,7 +34,7 @@ public class VerifyUserCanAddProductToBasketTest {
     @Description("Verify user can login")
     public void verifyLogIn() {
         loginPage.logInAsCustomer(customer);
-        Thread.sleep(60000);
+        Thread.sleep(20000);
         loginPage.waitForSomething(120);
 
         Assert.assertTrue(loginPage.isAccountIconPresent(),
