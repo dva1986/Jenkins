@@ -17,19 +17,23 @@ pipeline {
        git([url: 'https://github.com/dva1986/Jenkins.git', branch: 'main'])
      }
     }
-    stage('Run') {
+    stage('Build') {
      steps {
       sh 'sh scripts/build.sh'
-      sh 'sh scripts/run.sh'
+     }
+    }
+    stage('Run Selenoid') {
+     steps {
+      sh 'sh scripts/run-selenoid.sh'
       sh 'echo "http://127.0.0.1:8081"'
      }
     }
-    stage('Tests') {
+    stage('Run Tests') {
      steps {
       sh 'sh scripts/run-tests.sh'
      }
     }
-    stage('Report') {
+    stage('Generate Report') {
      steps {
       sh 'sh scripts/report.sh'
      }
