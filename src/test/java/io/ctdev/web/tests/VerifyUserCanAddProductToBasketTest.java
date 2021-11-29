@@ -62,15 +62,15 @@ public class VerifyUserCanAddProductToBasketTest {
                 format("'%s' should be present", expectedNotification));
     }
 
-//     @Test(dependsOnMethods = "verifyUserCanAddProduct")
-//     @Description("Verify Product is present in the basket")
-//     public void verifyProductIsPresentInTheBasket() {
-//         loginPage.clickOnBasketButton();
-//         String actualProductName = loginPage.getProductNameFromBasket();
-//
-//         Assert.assertTrue(actualProductName.contains(productName),
-//                 format("'%s' should be present", productName));
-//     }
+    @Test(dependsOnMethods = "verifyUserCanAddProduct")
+    @Description("Verify Product is present in the basket")
+    public void verifyProductIsPresentInTheBasket() {
+        loginPage.clickOnBasketButton();
+        String actualProductName = loginPage.getProductNameFromBasket();
+
+        Assert.assertTrue(actualProductName.contains(productName),
+                format("'%s' should be present", productName));
+    }
 
     @AfterClass
     public void closeDriver() {

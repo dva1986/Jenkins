@@ -162,7 +162,7 @@ public class LoginPage extends AbstractPage {
     }
 
     public void waitForSomething(long timeInSeconds) {
-        System.out.println("WAIT (REBUILD IMAGE #2) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println("WAIT (REBUILD IMAGE #3) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         wait(basketProductName, timeInSeconds);
     }
 }
