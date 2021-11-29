@@ -24,7 +24,7 @@ pipeline {
       sh 'docker run -d --net selenoid --name selenoid-ui -p 8081:8080 aerokube/selenoid-ui:latest-release --selenoid-uri http://selenoid:4444'
       sh 'echo "http://127.0.0.1:8081"'
       sh 'sh scripts/run-tests.sh'
-      sh 'docker run --rm --name maven -v $PWD/target:/app/target/ -v $PWD/allure-report:/app/allure-report/ dva1986/maven-tests site'
+      sh 'docker run --rm --name maven -v $PWD/target:/app/target/ -v $PWD/allure-report:/app/allure-report/ dva1986/maven-tests:latest site'
      }
     }
 //     stage('Clean up') {
