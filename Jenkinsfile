@@ -36,10 +36,16 @@ pipeline {
 
     stage('Debug') {
      steps {
-      sh 'ls -la'
-      sh 'java -version'
-      sh 'ls -a ${WORKSPACE}'
-
+//       sh 'ls -la'
+//       sh 'java -version'
+//       sh 'ls -a ${WORKSPACE}'
+        allure([
+            includeProperties: false,
+            jdk: '',
+            properties: [],
+            reportBuildPolicy: 'ALWAYS',
+            results: [[path: 'target/allure-results']]
+        ])
      }
     }
 
@@ -49,16 +55,15 @@ pipeline {
 //      }
 //     }
   }
-  post {
-      always {
-        allure([
-            report: 'allure-report',
-            includeProperties: false,
-            jdk: '',
-            properties: [],
-            reportBuildPolicy: 'ALWAYS',
-            results: [[path: '${WORKSPACE}/target/allure-results']]
-        ])
-      }
-    }
+//   post {
+//       always {
+//         allure([
+//             includeProperties: false,
+//             jdk: '',
+//             properties: [],
+//             reportBuildPolicy: 'ALWAYS',
+//             results: [[path: 'target/allure-results']]
+//         ])
+//       }
+//     }
 }
