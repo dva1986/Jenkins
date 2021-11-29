@@ -52,7 +52,6 @@ pipeline {
   post {
       always {
         allure([
-            report: 'allure-report',
             includeProperties: false,
             jdk: '',
             properties: [],
