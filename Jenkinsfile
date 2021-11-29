@@ -52,11 +52,12 @@ pipeline {
   post {
       always {
         allure([
+            report: 'allure-results',
             includeProperties: false,
             jdk: '',
             properties: [],
             reportBuildPolicy: 'ALWAYS',
-            results: [[path: '${WORKSPACE}/target/allure-resultsss']]
+            results: [[path: '${WORKSPACE}/target/allure-results']]
         ])
       }
     }
