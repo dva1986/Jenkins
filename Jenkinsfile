@@ -40,6 +40,7 @@ pipeline {
      steps {
         dir('.') {
             sh 'ls -la'
+            sh 'ls -la target'
         }
 //       sh 'ls -la'
 //       sh 'java -version'
@@ -66,7 +67,7 @@ pipeline {
   post {
       always {
                sh 'ls -la'
-
+            sh 'echo pwd'
 //         allure([
 //             includeProperties: false,
 //             jdk: '',
