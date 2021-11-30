@@ -48,7 +48,7 @@ pipeline {
                 jdk: '',
                 properties: [],
                 reportBuildPolicy: 'ALWAYS',
-                results: [[path: 'allure-report']],
+                results: [[path: 'target/allure-results'],[path: 'allure-results'],[path: '${WORKSPACE}/target'],[path: '${WORKSPACE}/target/allure-results']],
             ])
         }
 
