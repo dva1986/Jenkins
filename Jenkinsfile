@@ -1,7 +1,6 @@
 pipeline {
   agent {
-//     label 'demo-docker-jenkins'
-    label 'docker-jnlp'
+    label 'demo-docker-jenkins'
   }
   stages {
     stage('Initialize') {
