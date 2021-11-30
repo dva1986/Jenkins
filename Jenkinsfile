@@ -10,6 +10,8 @@ pipeline {
          env.PATH = "${dockerHome}/bin:${env.PATH}"
         }
         sh 'sh scripts/clear.sh'
+         sh 'mkdir -p target/allure-results'
+       sh 'mkdir -p allure-report'
       }
     }
     stage('Clone') {
@@ -30,8 +32,6 @@ pipeline {
     }
     stage('Run Tests') {
      steps {
-       sh 'mkdir -p target/allure-results'
-       sh 'mkdir -p allure-report'
       sh 'sh scripts/run-tests.sh'
      }
     }
