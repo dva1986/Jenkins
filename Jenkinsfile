@@ -36,45 +36,45 @@ pipeline {
      }
     }
 
-    stage('Debug') {
-     steps {
-        dir('.') {
-            sh 'ls -la'
-            sh 'ls -la target'
-        }
-//       sh 'ls -la'
-//       sh 'java -version'
-//       sh 'ls -a ${WORKSPACE}'
-        script {
-            allure([
-                includeProperties: true,
-                jdk: '',
-                properties: [],
-                reportBuildPolicy: 'ALWAYS',
-                results: [[path: 'target/allure-results']],
-            ])
-        }
-
-     }
-    }
-
-//     stage('Generate Report') {
+//     stage('Debug') {
 //      steps {
-//       sh 'sh scripts/report.sh'
+//         dir('.') {
+//             sh 'ls -la'
+//             sh 'ls -la target'
+//         }
+// //       sh 'ls -la'
+// //       sh 'java -version'
+// //       sh 'ls -a ${WORKSPACE}'
+//         script {
+//             allure([
+//                 includeProperties: true,
+//                 jdk: '',
+//                 properties: [],
+//                 reportBuildPolicy: 'ALWAYS',
+//                 results: [[path: 'target/allure-results']],
+//             ])
+//         }
+//
 //      }
 //     }
-  }
-  post {
-      always {
-               sh 'ls -la'
-            sh 'echo pwd'
-//         allure([
-//             includeProperties: false,
-//             jdk: '',
-//             properties: [],
-//             reportBuildPolicy: 'ALWAYS',
-//             results: [[path: 'target/allure-results']]
-//         ])
-      }
+
+    stage('Generate Report') {
+     steps {
+      sh 'sh scripts/report.sh'
+     }
     }
+  }
+//   post {
+//       always {
+//                sh 'ls -la'
+//             sh 'echo pwd'
+// //         allure([
+// //             includeProperties: false,
+// //             jdk: '',
+// //             properties: [],
+// //             reportBuildPolicy: 'ALWAYS',
+// //             results: [[path: 'target/allure-results']]
+// //         ])
+//       }
+//     }
 }
