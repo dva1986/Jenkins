@@ -36,7 +36,7 @@ pipeline {
 
     stage('Debug') {
      steps {
-        dir('.') {
+        dir('${WORKSPACE}') {
             sh 'ls -la'
         }
 //       sh 'ls -la'
@@ -48,7 +48,7 @@ pipeline {
                 jdk: '',
                 properties: [],
                 reportBuildPolicy: 'ALWAYS',
-                results: [[path: 'target/allure-results'],[path: 'allure-results'],[path: '${WORKSPACE}/target'],[path: '${WORKSPACE}/target/allure-results']],
+                results: [[path: '**/target/allure-results']],
             ])
         }
 
@@ -61,8 +61,11 @@ pipeline {
 //      }
 //     }
   }
-//   post {
-//       always {
+  post {
+      always {
+       steps {
+        sh 'ls -la'
+       }
 //         allure([
 //             includeProperties: false,
 //             jdk: '',
@@ -70,6 +73,6 @@ pipeline {
 //             reportBuildPolicy: 'ALWAYS',
 //             results: [[path: 'target/allure-results']]
 //         ])
-//       }
-//     }
+      }
+    }
 }
