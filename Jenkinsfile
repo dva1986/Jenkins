@@ -36,7 +36,7 @@ pipeline {
 
     stage('Debug') {
      steps {
-        dir('${WORKSPACE}') {
+        dir('.') {
             sh 'ls -la'
         }
 //       sh 'ls -la'
