@@ -31,7 +31,7 @@ pipeline {
     stage('Run Tests') {
      steps {
        sh 'mkdir -p target/allure-results'
-       sh 'mkdir -p target/allure-reports'
+       sh 'mkdir -p allure-report'
       sh 'sh scripts/run-tests.sh'
      }
     }
@@ -46,7 +46,6 @@ pipeline {
 //       sh 'ls -a ${WORKSPACE}'
         script {
             allure([
-                report: 'target/allure-reports',
                 includeProperties: true,
                 jdk: '',
                 properties: [],
