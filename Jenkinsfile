@@ -63,9 +63,8 @@ pipeline {
   }
   post {
       always {
-       steps {
-        sh 'ls -la'
-       }
+               sh 'ls -la'
+
 //         allure([
 //             includeProperties: false,
 //             jdk: '',
