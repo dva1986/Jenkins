@@ -36,16 +36,22 @@ pipeline {
 
     stage('Debug') {
      steps {
+        dir('${WORKSPACE}') {
+            sh 'ls -la'
+        }
 //       sh 'ls -la'
 //       sh 'java -version'
 //       sh 'ls -a ${WORKSPACE}'
-        allure([
-            includeProperties: false,
-            jdk: '',
-            properties: [],
-            reportBuildPolicy: 'ALWAYS',
-            results: [[path: 'target/allure-results']]
-        ])
+        script {
+            allure([
+                includeProperties: true,
+                jdk: '',
+                properties: [],
+                reportBuildPolicy: 'ALWAYS',
+                results: [[path: 'target/allure-results']],
+            ])
+        }
+
      }
     }
 
