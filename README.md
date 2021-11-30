@@ -1,16 +1,21 @@
-1. > docker network create selenoid
+### Start jenkins
 
-2. > docker pull selenoid/vnc:chrome_91.0
+> docker run -d -p 8082:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:jdk11
 
-3. > docker run -d --net selenoid --name selenoid -p 4445:4444 -v /var/run/docker.sock:/var/run/docker.sock \
-   -v $PWD:/etc/selenoid/:ro aerokube/selenoid:latest-release \
-   -conf /etc/selenoid/browsers.json -video-output-dir /opt/selenoid/video/ -timeout 3m0s -container-network selenoid
+```
+localhost:8082
+```
 
-4. > docker run -d --net selenoid --name selenoid-ui -p 8081:8080 aerokube/selenoid-ui:latest-release \
-   --selenoid-uri http://selenoid:4444
+### Start Allure Report service
 
-5. > docker build -t maven . -f image/maven-ci/Dockerfile
+> docker-compose -f docker-compose-allure.yml up -d
 
-6. > docker run --rm --net selenoid --name maven maven test -e -X
+```
+localhost:5252
+```
 
-7. > docker run --rm --name maven -v $PWD/allure-report:/app/allure-report/ maven site
+### Selenoid url
+
+```
+http://localhost:8081/#/
+```
