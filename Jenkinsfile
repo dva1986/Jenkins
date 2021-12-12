@@ -9,6 +9,7 @@ pipeline {
          def dockerHome = tool 'myDocker'
          env.PATH = "${dockerHome}/bin:${env.PATH}"
         }
+        sh 'docker-machine env'
         sh 'sh scripts/clear.sh'
       }
     }
