@@ -2,11 +2,11 @@ pipeline {
   agent {
     label 'demo-docker-jenkins'
   }
+   environment {
+        DOCKER_HOST='tcp://host.docker.internal:1234'
+    }
   stages {
     stage('Initialize') {
-     environment {
-          DOCKER_HOST='tcp://host.docker.internal:1234'
-      }
       steps {
         script {
          def dockerHome = tool 'myDocker'
