@@ -19,3 +19,9 @@ localhost:5252
 ```
 http://localhost:8081/#/
 ```
+
+
+### Useful comments
+
+> docker run --user root -d -p 127.0.0.1:1234:1234 bobrik/socat TCP-LISTEN:1234,fork UNIX-CONNECT:/var/run/docker.sock
+
