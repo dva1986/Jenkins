@@ -3,7 +3,7 @@ pipeline {
     label 'demo-docker-jenkins'
   }
    environment {
-        DOCKER_HOST='tcp://host.docker.internal:1234'
+//         DOCKER_HOST='tcp://host.docker.internal:1234'
     }
   stages {
     stage('Initialize') {
