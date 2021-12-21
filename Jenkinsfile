@@ -9,6 +9,7 @@ pipeline {
          def dockerHome = tool 'myDocker'
          env.PATH = "${dockerHome}/bin:${env.PATH}"
         }
+        sh 'export DOCKER_HOST=tcp://host.docker.internal:1234'
         sh 'echo $DOCKER_HOST'
         sh 'env | grep DOCKER'
         sh 'sh scripts/clear.sh'
