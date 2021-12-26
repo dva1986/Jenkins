@@ -12,6 +12,7 @@ pipeline {
          def dockerHome = tool 'myDocker'
          env.PATH = "${dockerHome}/bin:${env.PATH}"
         }
+        sh 'sleep 120'
         sh 'sh scripts/clear.sh'
       }
     }
@@ -33,7 +34,6 @@ pipeline {
     }
     stage('Run Tests') {
      steps {
-      sh 'echo $PWD'
       sh 'sh scripts/run-tests.sh'
      }
     }
