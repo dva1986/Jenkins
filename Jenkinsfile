@@ -2,9 +2,9 @@ pipeline {
   agent {
     label 'demo-docker-jenkins'
   }
-//   environment {
-//         DOCKER_HOST='tcp://host.docker.internal:1234'
-//    }
+  environment {
+        DOCKER_HOST='tcp://host.docker.internal:1234'
+   }
   stages {
     stage('Initialize') {
       steps {
@@ -32,15 +32,15 @@ pipeline {
       sh 'echo "http://127.0.0.1:8081"'
      }
     }
-//     stage('Run Tests') {
-//      steps {
-//       sh 'sh scripts/run-tests.sh'
-//      }
-//     }
-//     stage('Generate Report') {
-//      steps {
-//       sh 'sh scripts/report.sh'
-//      }
-//     }
+    stage('Run Tests') {
+     steps {
+      sh 'sh scripts/run-tests.sh'
+     }
+    }
+    stage('Generate Report') {
+     steps {
+      sh 'sh scripts/report.sh'
+     }
+    }
   }
 }
