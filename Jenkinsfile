@@ -12,8 +12,7 @@ pipeline {
          def dockerHome = tool 'myDocker'
          env.PATH = "${dockerHome}/bin:${env.PATH}"
         }
-        sh 'echo $DOCKER_HOST'
-        sh 'env | grep DOCKER'
+        sh 'sleep 90'
         sh 'sh scripts/clear.sh'
       }
     }
