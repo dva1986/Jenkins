@@ -21,11 +21,11 @@ pipeline {
        git([url: 'https://github.com/dva1986/Jenkins.git', branch: 'main'])
      }
     }
-//     stage('Build') {
-//      steps {
-//       sh 'sh scripts/build.sh'
-//      }
-//     }
+    stage('Build') {
+     steps {
+      sh 'sh scripts/build.sh'
+     }
+    }
 //     stage('Run Selenoid') {
 //      steps {
 //       sh 'sh scripts/run-selenoid.sh'
