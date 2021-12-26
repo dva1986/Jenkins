@@ -33,7 +33,7 @@ pipeline {
     }
     stage('Run Tests') {
      steps {
-      sh 'echo $pwd'
+      sh 'echo $PWD'
       sh 'sh scripts/run-tests.sh'
      }
     }
