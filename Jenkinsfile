@@ -21,26 +21,26 @@ pipeline {
        git([url: 'https://github.com/dva1986/Jenkins.git', branch: 'main'])
      }
     }
-    stage('Build') {
-     steps {
-      sh 'sh scripts/build.sh'
-     }
-    }
-    stage('Run Selenoid') {
-     steps {
-      sh 'sh scripts/run-selenoid.sh'
-      sh 'echo "http://127.0.0.1:8081"'
-     }
-    }
-    stage('Run Tests') {
-     steps {
-      sh 'sh scripts/run-tests.sh'
-     }
-    }
-    stage('Generate Report') {
-     steps {
-      sh 'sh scripts/report.sh'
-     }
-    }
+//     stage('Build') {
+//      steps {
+//       sh 'sh scripts/build.sh'
+//      }
+//     }
+//     stage('Run Selenoid') {
+//      steps {
+//       sh 'sh scripts/run-selenoid.sh'
+//       sh 'echo "http://127.0.0.1:8081"'
+//      }
+//     }
+//     stage('Run Tests') {
+//      steps {
+//       sh 'sh scripts/run-tests.sh'
+//      }
+//     }
+//     stage('Generate Report') {
+//      steps {
+//       sh 'sh scripts/report.sh'
+//      }
+//     }
   }
 }
