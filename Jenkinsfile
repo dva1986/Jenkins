@@ -55,10 +55,24 @@ pipeline {
       sh 'sh scripts/run-tests.sh'
      }
     }
-    stage('Generate Report') {
-     steps {
-      sh 'sh scripts/report.sh'
+//     stage('Generate Report') {
+//      steps {
+//       sh 'sh scripts/report.sh'
+//      }
+//     }
+  }
+
+  post('Publish report') {
+     always {
+        script {
+           allure([
+              includeProperties: false,
+              jdk: '',
+              properties: [],
+              reportBuildPolicy: 'ALWAYS',
+              results: [[path: '$RESULT_PATH/target/allure-results']]
+           ])
+        }
      }
-    }
   }
 }
