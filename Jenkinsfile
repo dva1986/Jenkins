@@ -40,6 +40,7 @@ pipeline {
      steps {
       sh 'sh scripts/report.sh'
       sh 'ls /tmp/results'
+      sh 'ls -la'
      }
     }
   }
