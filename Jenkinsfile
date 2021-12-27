@@ -8,20 +8,18 @@ pipeline {
 //         RESULT_PATH='/Users/test/test_results'
    }
   stages {
-    stages {
-        stage('Setup parameters') {
-            steps {
-                script {
-                    properties([
-                        parameters([
-                            string(
-                                defaultValue: '/tmp/results',
-                                name: 'RESULT_PATH',
-                                trim: true
-                            )
-                        ])
+    stage('Setup parameters') {
+        steps {
+            script {
+                properties([
+                    parameters([
+                        string(
+                            defaultValue: '/tmp/results',
+                            name: 'RESULT_PATH',
+                            trim: true
+                        )
                     ])
-                }
+                ])
             }
         }
     }
