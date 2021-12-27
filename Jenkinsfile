@@ -12,11 +12,6 @@ pipeline {
          def dockerHome = tool 'myDocker'
          env.PATH = "${dockerHome}/bin:${env.PATH}"
         }
-//         sh 'sleep 600'
-        sh 'cd ..'
-        sh 'ls -la'
-        sh 'cd ..'
-        sh 'ls -la'
         sh 'pwd'
         sh 'sh scripts/clear.sh'
       }
