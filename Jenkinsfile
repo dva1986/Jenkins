@@ -14,7 +14,6 @@ pipeline {
         }
         sh 'pwd'
         sh 'ls /tmp/results'
-        sh 'sleep 400'
         sh 'sh scripts/clear.sh'
       }
     }
