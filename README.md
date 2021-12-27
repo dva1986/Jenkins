@@ -31,3 +31,4 @@ http://localhost:8081/#/
 
 type=bind,source=/home/vdomikan/projects/selenoid-dva196-jenkins/tmp,destination=/home/jenkins
 type=bind,source=/home/vdomikan/projects/selenoid-dva196-jenkins/tmp,target=/home/jenkins
+type=bind,source=/home/vdomikan/projects/selenoid-dva196-jenkins/tmp-results,target=/tmp/results
