@@ -35,8 +35,7 @@ pipeline {
     }
     stage('Run Tests') {
      steps {
-//       sh 'sh scripts/run-tests.sh'
-      sh 'docker run --rm --net selenoid --name maven -v $RESULT_PATH/target/:/app/target/ dva1986/maven-tests:latest test -e -X'
+      sh 'sh scripts/run-tests.sh'
      }
     }
     stage('Generate Report') {
