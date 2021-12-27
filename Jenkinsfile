@@ -12,7 +12,7 @@ pipeline {
          def dockerHome = tool 'myDocker'
          env.PATH = "${dockerHome}/bin:${env.PATH}"
         }
-//         sh 'sleep 120'
+        sh 'pwd'
         sh 'sh scripts/clear.sh'
       }
     }
@@ -32,11 +32,11 @@ pipeline {
       sh 'echo "http://127.0.0.1:8081"'
      }
     }
-    stage('Run Tests') {
-     steps {
-      sh 'sh scripts/run-tests.sh'
-     }
-    }
+//     stage('Run Tests') {
+//      steps {
+//       sh 'sh scripts/run-tests.sh'
+//      }
+//     }
 //     stage('Generate Report') {
 //      steps {
 //       sh 'sh scripts/report.sh'
