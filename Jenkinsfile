@@ -2,27 +2,28 @@ pipeline {
   agent {
     label 'demo-docker-jenkins'
   }
-//   environment {
+  environment {
 //         DOCKER_HOST='tcp://host.docker.internal:1234'
-// //         RESULT_PATH='/tmp/results'
-// //         RESULT_PATH='/Users/test/test_results'
-//    }
+//         RESULT_PATH='/Users/test/test_results'
+
+        RESULT_PATH='/tmp/results'
+   }
   stages {
-    stage('Setup parameters') {
-        steps {
-            script {
-                properties([
-                    parameters([
-                        string(
-                            defaultValue: '/tmp/results',
-                            name: 'RESULT_PATH',
-                            trim: true
-                        )
-                    ])
-                ])
-            }
-        }
-    }
+//     stage('Setup parameters') {
+//         steps {
+//             script {
+//                 properties([
+//                     parameters([
+//                         string(
+//                             defaultValue: '/tmp/results',
+//                             name: 'RESULT_PATH',
+//                             trim: true
+//                         )
+//                     ])
+//                 ])
+//             }
+//         }
+//     }
 
     stage('Initialize') {
       steps {
@@ -70,6 +71,7 @@ pipeline {
               jdk: '',
               properties: [],
               reportBuildPolicy: 'ALWAYS',
+              report: '/tmp/results/allure-report-generated',
               results: [[path: '/tmp/results/target/allure-results']]
            ])
         }
