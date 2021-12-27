@@ -72,7 +72,7 @@ pipeline {
               jdk: '',
               properties: [],
               reportBuildPolicy: 'ALWAYS',
-              results: [[path: '/tmp/results']]
+              results: [[path: '/tmp/results/target']]
            ])
         }
      }
