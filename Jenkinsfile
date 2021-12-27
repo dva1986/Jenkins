@@ -5,15 +5,34 @@ pipeline {
   environment {
         DOCKER_HOST='tcp://host.docker.internal:1234'
 //         RESULT_PATH='/tmp/results'
-        RESULT_PATH='/Users/test/test_results'
+//         RESULT_PATH='/Users/test/test_results'
    }
   stages {
+    stages {
+        stage('Setup parameters') {
+            steps {
+                script {
+                    properties([
+                        parameters([
+                            string(
+                                defaultValue: '/tmp/results',
+                                name: 'RESULT_PATH',
+                                trim: true
+                            )
+                        ])
+                    ])
+                }
+            }
+        }
+    }
+
     stage('Initialize') {
       steps {
         script {
          def dockerHome = tool 'myDocker'
          env.PATH = "${dockerHome}/bin:${env.PATH}"
         }
+        sh 'echo $RESULT_PATH'
         sh 'sh scripts/clear.sh'
       }
     }
