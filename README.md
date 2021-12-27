@@ -6,6 +6,8 @@
 > docker run -d -p 8082:8080 -p 50000:50000 -v /home/vdomikan/projects/selenoid-dva196-jenkins/tmp:/home/jenkins/workspace -v jenkins_home:/var/jenkins_home jenkins/jenkins:jdk11
 > docker run -d -p 8082:8080 -p 50000:50000 -v /home/vdomikan/projects/selenoid-dva196-jenkins/tmp:/home/jenkins/workspace -e WORKSPACE='/home/jenkins/workspace' -v jenkins_home:/var/jenkins_home jenkins/jenkins:jdk11
 
+> docker run -d -p 8082:8080 -p 50000:50000 -v /tmp/results:/tmp/results -v jenkins_home:/var/jenkins_home jenkins/jenkins:jdk11
+
 ```
 localhost:8082
 ```

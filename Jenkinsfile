@@ -2,9 +2,10 @@ pipeline {
   agent {
     label 'demo-docker-jenkins'
   }
-//   environment {
+  environment {
 //         DOCKER_HOST='tcp://host.docker.internal:1234'
-//    }
+        RESULT_PATH='/tmp/results'
+   }
   stages {
     stage('Initialize') {
       steps {
@@ -36,12 +37,27 @@ pipeline {
       sh 'sh scripts/run-tests.sh'
      }
     }
-    stage('Generate Report') {
-     steps {
-      sh 'sh scripts/report.sh'
-      sh 'ls /tmp/results'
-      sh 'ls -la'
-     }
+//     stage('Generate Report') {
+//      steps {
+//       sh 'sh scripts/report.sh'
+//       sh 'ls /tmp/results'
+//       sh 'ls /tmp/resultss'
+//       sh 'ls -la'
+//       sh 'ls /app'
+//      }
+//     }
+    stage('reports') {
+      steps {
+        script {
+            allure([
+                includeProperties: false,
+                jdk: '',
+                properties: [],
+                reportBuildPolicy: 'ALWAYS',
+                results: [[path: '/tmp/results/target/allure-results']]
+            ])
+        }
+      }
     }
   }
 }
