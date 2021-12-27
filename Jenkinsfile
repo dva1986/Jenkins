@@ -12,8 +12,6 @@ pipeline {
          def dockerHome = tool 'myDocker'
          env.PATH = "${dockerHome}/bin:${env.PATH}"
         }
-        sh 'pwd'
-        sh 'ls /tmp/results'
         sh 'sh scripts/clear.sh'
       }
     }
@@ -41,6 +39,7 @@ pipeline {
     stage('Generate Report') {
      steps {
       sh 'sh scripts/report.sh'
+      sh 'ls /tmp/results'
      }
     }
   }
