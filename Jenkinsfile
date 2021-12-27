@@ -3,8 +3,9 @@ pipeline {
     label 'demo-docker-jenkins'
   }
   environment {
-//         DOCKER_HOST='tcp://host.docker.internal:1234'
-        RESULT_PATH='/tmp/results'
+        DOCKER_HOST='tcp://host.docker.internal:1234'
+//         RESULT_PATH='/tmp/results'
+        RESULT_PATH='/Users/test/test_results'
    }
   stages {
     stage('Initialize') {

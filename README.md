@@ -14,7 +14,11 @@ localhost:8082
 
 ### Start Allure Report service
 
-> docker-compose -f docker-compose-allure.yml up -d
+[comment]: <> (> docker-compose -f docker-compose-allure.yml up -d)
+
+> cd allure
+> docker-compose build
+> docker-compose up -d
 
 ```
 localhost:5252

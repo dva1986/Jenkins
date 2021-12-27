@@ -10,9 +10,11 @@ services:
       - "5050:5050"
     volumes:
 #      - /home/jenkins/workspace/tests/target/allure-results:/app/allure-results
-      - /tmp/results/target/allure-results:/app/allure-results
+#      - /tmp/results/target/allure-results:/app/allure-results
+      - /Users/test/test_results/target/allure-results:/app/allure-results
 #      - /home/jenkins/workspace/tests/allure-report:/app/default-reports
-      - /tmp/results/allure-report:/app/default-reports
+#      - /tmp/results/allure-report:/app/default-reports
+      - /Users/test/test_results/allure-report:/app/default-reports
 
   allure-ui:
     image: "frankescobar/allure-docker-service-ui"
