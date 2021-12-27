@@ -2,11 +2,11 @@ pipeline {
   agent {
     label 'demo-docker-jenkins'
   }
-  environment {
-        DOCKER_HOST='tcp://host.docker.internal:1234'
+//   environment {
+//         DOCKER_HOST='tcp://host.docker.internal:1234'
 //         RESULT_PATH='/tmp/results'
 //         RESULT_PATH='/Users/test/test_results'
-   }
+//    }
   stages {
     stage('Setup parameters') {
         steps {
@@ -16,6 +16,11 @@ pipeline {
                         string(
                             defaultValue: '/tmp/results',
                             name: 'RESULT_PATH',
+                            trim: true
+                        ),
+                        string(
+                            defaultValue: 'tcp://host.docker.internal:1234',
+                            name: 'DOCKER_HOST',
                             trim: true
                         )
                     ])
