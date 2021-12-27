@@ -4,7 +4,6 @@ pipeline {
   }
   environment {
         DOCKER_HOST='tcp://host.docker.internal:1234'
-        PWD='/Users/test/test_results'
    }
   stages {
     stage('Initialize') {
