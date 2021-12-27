@@ -53,6 +53,8 @@ pipeline {
     stage('Run Tests') {
      steps {
       sh 'sh scripts/run-tests.sh'
+      sh 'ls /tmp/results'
+      sh 'ls /tmp/results/target/allure-results'
      }
     }
 //     stage('Generate Report') {
