@@ -3,10 +3,10 @@ pipeline {
     label 'demo-docker-jenkins'
   }
   environment {
-//         DOCKER_HOST='tcp://host.docker.internal:1234'
-//         RESULT_PATH='/Users/test/test_results'
+        DOCKER_HOST='tcp://host.docker.internal:1234'
+        RESULT_PATH='/Users/test/test_results'
 
-        RESULT_PATH='/tmp/results'
+//         RESULT_PATH='/tmp/results'
    }
   stages {
 //     stage('Setup parameters') {
@@ -58,25 +58,25 @@ pipeline {
       sh 'ls /tmp/results/target/allure-results'
      }
     }
-//     stage('Generate Report') {
-//      steps {
-//       sh 'sh scripts/report.sh'
-//      }
-//     }
+    stage('Generate Report') {
+     steps {
+      sh 'sh scripts/report.sh'
+     }
+    }
   }
 
-  post('Publish report') {
-     always {
-        script {
-           allure([
-              includeProperties: false,
-              jdk: '',
-              properties: [],
-              reportBuildPolicy: 'ALWAYS',
-              report: '/tmp/results/allure-report',
-              results: [[path: '/tmp/results/target/allure-results']]
-           ])
-        }
-     }
-  }
+//   post('Publish report') {
+//      always {
+//         script {
+//            allure([
+//               includeProperties: false,
+//               jdk: '',
+//               properties: [],
+//               reportBuildPolicy: 'ALWAYS',
+//               report: '/tmp/results/allure-report',
+//               results: [[path: '/tmp/results/target/allure-results']]
+//            ])
+//         }
+//      }
+//   }
 }
