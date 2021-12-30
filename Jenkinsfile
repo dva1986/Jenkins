@@ -5,7 +5,6 @@ pipeline {
   environment {
         DOCKER_HOST='tcp://host.docker.internal:1234'
         RESULT_PATH='/Users/test/test_results'
-
 //         RESULT_PATH='/tmp/results'
    }
   stages {
@@ -31,7 +30,6 @@ pipeline {
          def dockerHome = tool 'myDocker'
          env.PATH = "${dockerHome}/bin:${env.PATH}"
         }
-        sh 'echo $RESULT_PATH'
         sh 'sh scripts/clear.sh'
       }
     }
@@ -54,8 +52,6 @@ pipeline {
     stage('Run Tests') {
      steps {
       sh 'sh scripts/run-tests.sh'
-      sh 'ls -la'
-      sh 'ls /tmp/results/target/allure-results'
      }
     }
     stage('Generate Report') {
